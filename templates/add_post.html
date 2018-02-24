@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} <title>MyBlog | HOMEPAGE</title> {% endblock %}
+
+{% block content %}
+	<br>
+	<div class="container">
+		<h3 class="center-align">Aggiungi Post</h3>
+		<div class="row">
+			<!--{{ form.as_table }}-->
+			<form class="col s12" method='post'>
+		        {% csrf_token %}
+		        <div class="row">
+		            <div class="col s12">
+		                {{ form.title.errors }}
+		                <div class="input-field col s12">
+		                    <label for="id_title">{{ form.title.label }}</label>
+		                    {{ form.title }}
+		                </div>
+		            </div>
+		        </div>
+		        <br />
+		        <div class="row">
+		            <div class="col s12">
+		                {{ form.content.errors }}
+		                <div class="input-field col s12">
+		                    <label for="id_content">{{ form.content.label }}</label>
+		                    {{ form.content }}
+		                </div>
+		            </div>
+		        </div>
+		        <br />
+		        <div class="row">
+		            <div class="col s12">
+		                {{ form.author.errors }}
+		                <div class="input-field col s12">
+		                    <label for="id_author">{{ form.author.label }}</label>
+		                    {{ form.author }}
+		                </div>
+		            </div>
+		        </div>
+		        <br />
+		        <div class="row">
+		            <div class="col s12">
+		                {{ form.date.errors }}
+		                <div class="input-field col s12">
+		                    <label for="id_date">{{ form.date.label }}</label>
+		                    {{ form.date }}
+		                </div>
+		            </div>
+		        </div>
+		        <button class="waves-effect waves-light btn-large col s10 m10 l4 offset-s1 offset-m1 offset-l4 red" type="submit">SALVA</button>
+		    </form>
+		</div>
+	</div>
+{% endblock %}
+
+{% block script %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('textarea').addClass('materialize-textarea');
+		});
+	</script>
+{% endblock %}

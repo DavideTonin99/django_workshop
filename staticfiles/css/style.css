@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+	background: white;
+}
+
+header {
+	height: 150px;
+	border-bottom: 5px solid #0d47a1;
+}
+
+header > h2 {
+	width: 100%;
+}
+
+main {
+	background: white;
+    flex: 1 0 auto;
+}
+
+.post-content {
+	text-align: justify;
+	max-height: 200px;
+	overflow: auto;
+}

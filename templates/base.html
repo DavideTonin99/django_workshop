@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block title %}{% endblock %}
+
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+        {% block style %}{% endblock %}
+    </head>
+    <body class="grey darken-4">
+		<header class="container-fluid valign-wrapper light-blue darken-3 white-text">
+			<h2 class="center-align">MYBLOG</h2>
+		</header>
+        <main>
+            {% block content %}{% endblock %}
+		</main>
+
+		<footer class="page-footer light-blue darken-3">
+		<div class="container">
+          <div class="row">
+            <div class="col l12 m12 s12">
+              <h4>ITIS G. Marconi Verona</h4>
+              DJANGO WORKSHOP
+            </div>
+          </div>
+        </div>
+          <div class="footer-copyright blue darken-4">
+            <div class="container">
+            Feolone, Tonziopelato
+            </div>
+          </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        {% block script %}{% endblock %}
+    </body>
+</html>
