@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from .models import Post
 from .forms import PostForm
 
+'''
 class BlogView(TemplateView):
 
     model = Post
@@ -26,6 +27,26 @@ class BlogView(TemplateView):
         else:
             context['error'] = 'Nessun post trovato'
         return context
+'''
+
+def blog_view(request):
+	context = {}
+	post_list = Post.objects.all().order_by('-date')
+
+	if (len(post_list) > 0):
+		context['post_list'] = [
+							({
+								'title': post.title,
+								'content': post.content,
+								'author': post.author,
+								'date': post.date
+							})
+							for post in post_list
+							]
+	else:
+		context['error'] = 'Nessun post trovato'
+	return render(request, 'blog.html', context)
+
 
 def get_blog_json(request):
 	blog = {}
