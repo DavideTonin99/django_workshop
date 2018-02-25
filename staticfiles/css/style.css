@@ -7,7 +7,7 @@ body {
 
 header {
 	height: 150px;
-	border-bottom: 5px solid #0d47a1;
+	border-bottom: 5px solid #004d40;
 }
 
 header > h2 {
@@ -23,4 +23,8 @@ main {
 	text-align: justify;
 	max-height: 200px;
 	overflow: auto;
+}
+
+.errorlist {
+	color: red;
 }

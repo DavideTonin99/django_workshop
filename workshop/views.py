@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, CreateView
+from django.http import JsonResponse
 from .models import Post
 from .forms import PostForm
 
@@ -25,6 +26,25 @@ class BlogView(TemplateView):
         else:
             context['error'] = 'Nessun post trovato'
         return context
+
+def get_blog_json(request):
+	blog = {}
+	post_list = Post.objects.all().order_by('-date')
+	cont = 0
+
+	if (len(post_list) > 0):
+		for post in post_list:
+			blog[cont] = {
+				'title': post.title,
+				'content': post.content,
+				'author': post.author,
+				'date': post.date
+			}
+			cont += 1
+	else:
+		blog['error'] = "Nessun post trovato"
+	return JsonResponse(blog)
+
 
 def add_post_view(request):
 	if request.method == 'POST':
